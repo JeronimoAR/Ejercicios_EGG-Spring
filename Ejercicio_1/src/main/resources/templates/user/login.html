@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Noticias</title>
+</head>
+
+<body>
+    <div th:include="user/user_templates.html::header" th:if="${sesion == null}"></div>
+    <div th:include="user/user_templates.html::header-user" th:unless="${sesion == null}"></div>
+    <div id="bg" class="container-fluid">\
+        <br>
+        <div class="row md">
+            <div class="card mt-3" style="margin: 0 auto;width: 34rem; ">
+                <div class="card-body">
+                    <form th:action="@{/logincheck}" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputTitle1" class="form-label">Email</label>
+                            <input type="text" name="email" class="form-control" id="exampleInputTitle1"
+                                aria-describedby="titleHelp">
+                            <div id="titlehelp" class="form-text">Ingresa tu Email</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputTitle1" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" aria-describedby="titleHelp">
+                            <div class="form-text">Ingresa tu Contraseña</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <div th:if="${error != null}" class="window-notice" id="window-notice">
+                            <div class="card mb-3 content">
+                                <div class="card-header" style="border: none;">
+                                    <a th:href="@{/noticia/registrar}" class="close">x</a>
+                                </div>
+                                <div class="card-body content-text" style="border: none;">
+                                    <h5 class="card-title">Error</h5>
+                                    <p class="card-text" th:text="${error}"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${exito != null}" class="window-notice" id="window-notice">
+                            <div class="card mb-3 content">
+                                <div class="card-header" style="border: none;">
+                                    <a th:href="@{/noticia}" class="close">x</a>
+                                </div>
+                                <div class="card-body content-text">
+                                    <h5 class="card-title">Felicidades!</h5>
+                                    <p class="card-text" th:text="${exito}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-7">
+                            <a th:href="@{/user/register}" class="btn btn-dark" style="margin: 0 auto;">Registrarse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="/user/user_templates.html::footer"></div>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

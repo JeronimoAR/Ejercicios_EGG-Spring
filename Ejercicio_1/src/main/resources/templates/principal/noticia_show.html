@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Noticia</title>
+</head>
+<body>
+    <div th:include="user/user_templates.html::header" th:if="${sesion == null}"></div>
+    <div th:include="user/user_templates.html::header-user" th:unless="${sesion == null}"></div>
+    <div id="bg" class="container-fluid">
+        <br>
+        <br>
+        <div class="card" style="margin: 0 auto; width: 70rem;">
+            <div class="card-head">
+                <h2 class="card-title ms-4" th:text="${noticia.titulo}" style="text-align: left; font-family:'Segoe UI Symbol'"></h2>
+            </div>
+            <div class="card-body" style="width: 50rem; margin: 0 auto; text-align: center;">
+                <h5 class="card-text" th:text="${noticia.cuerpo}"></h5>
+            </div>
+        </div>
+    </div>
+    <div th:include="/principal/principal_templates.html::footer"></div>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<style>
+    a {
+        text-decoration:none;
+        color: blanchedalmond;
+    }
+</style>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">NEWS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Noticias</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/noticias}">Ver noticias</a>
+                            <a class="dropdown-item" th:href="@{/noticia}">Administrar Noticias</a>
+                            <a class="dropdown-item" th:href="@{/user}">Administrar Usuarios</a>
+                            <a class="dropdown-item" th:href="@{/noticia/registrar}">Crear Noticia</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="titulo"
+                    autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<div th:fragment="footer">
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; News 2023</p>
+        </div>
+    </footer>
+</div>

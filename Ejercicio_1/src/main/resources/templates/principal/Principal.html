@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>News</title>
+</head>
+<body>
+    <div th:include="user/user_templates.html::header" th:if="${sesion == null}"></div>
+    <div th:include="user/user_templates.html::header-user" th:unless="${sesion == null}"></div>
+    <div id="bg" class="container-fluid">
+        <br />
+        <div class="card" style="opacity: 0.7; width: 50rem; left: 3%; top: 10%">
+            <div class="card-header" style="border:none;">
+                <h1 class="card-title ms-2">Pagina princial de noticias de Jero</h1>
+                <h5 class="card-subtitle ms-2">En esta pagina veras noticias falsas creadas por mi, solo para mi diversion</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text ms-2">
+                    Por favor hacer caso omiso a este texto simplemente esta aqui para rellenar espacio util<br>
+                    Si sigue lellendo voy a creer que usted es una persona que tiene un coeficiente intelectual bajo<br>
+                    ya que previamente le explice de una manera muy amable que este texto no importa<br>
+                    y vuelvo a repetir este texto no importa, no lo digo de una manera metaforica o que pueda causar confucion<br>
+                    lo digo literalmente este texto no importa<br />
+                </p>
+            </div>
+            <div class="card-footer" style="margin: 0 auto ;border: none;">
+                <a id="btn-card" class="btn btn-primary" th:href="@{/noticias}" role="button">Ver noticias</a>
+            </div>
+        </div>
+    </div>
+    <div th:include="principal/principal_templates.html::footer"></div>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
